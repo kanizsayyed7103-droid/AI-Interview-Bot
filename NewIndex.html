@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ai Interview Bot</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Agar CSS mein active panel hide hai to ise ensure karein */
+    .authfy-panel { display: none; }
+    .authfy-panel.active { display: block; }
+  </style>
+</head>
+
+<body>
+  <!-- Dust Particles (Aapka SVG code yahan rahega...) -->
+  <div class="dust-paarticle">
+    <!-- ... (Keep your SVG as it is) ... -->
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="authfy-container col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+        
+        <div class="col-sm-5 authfy-panel-left">
+          <div class="brand-col">
+            <div class="headline">
+              <div class="brand-logo">
+                <img src="https://1.bp.blogspot.com/-3he0CGCSWHA/XyqopZcixRI/AAAAAAAAVM8/Mdfk_mPQa0Ydb7IAH0Iir8F4Ge7xxF0ygCLcBGAsYHQ/s0/logo.png" width="150" alt="logo">
+              </div>
+              <p>Login using social media to start interview</p>
+              <div class="row social-buttons">
+                <div class="col-xs-4 col-sm-4 col-md-12">
+                  <a href="#" class="btn btn-block btn-facebook"><i class="fa fa-facebook"></i> <span>Facebook</span></a>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-12">
+                  <a href="#" class="btn btn-block btn-google"><i class="fa fa-google-plus"></i> <span>Google</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-7 authfy-panel-right">
+          <div class="authfy-login">
+            
+            <!-- Login Panel -->
+            <div class="authfy-panel panel-login text-center active">
+              <div class="authfy-heading">
+                <h3 class="auth-title">Login to your account</h3>
+                <p>Don’t have an account? <a class="lnk-toggler" data-panel=".panel-signup" href="#">Sign Up Free!</a></p>
+              </div>
+              <form name="loginForm">
+                <div class="form-group"><input type="email" id="loginEmail" class="form-control" placeholder="Email address"></div>
+                <div class="form-group"><input type="password" id="loginPassword" class="form-control" placeholder="Password"></div>
+                <button type="button" class="btn btn-lg btn-primary btn-block" onclick="loginUser()">Login</button>
+              </form>
+            </div>
+
+            <!-- Signup Panel -->
+            <div class="authfy-panel panel-signup text-center">
+              <div class="authfy-heading">
+                <h3 class="auth-title">Sign up for free!</h3>
+              </div>
+              <form name="signupForm">
+                <div class="form-group"><input type="text" id="signupName" class="form-control" placeholder="Full Name"></div>
+                <div class="form-group"><input type="email" id="signupEmail" class="form-control" placeholder="Email address"></div>
+                <div class="form-group"><input type="password" id="signupPassword" class="form-control" placeholder="Password"></div>
+                <button type="button" class="btn btn-lg btn-primary btn-block" onclick="signupUser()">Sign Up</button>
+              </form>
+              <a class="lnk-toggler" data-panel=".panel-login" href="#">Already have an account?</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  
+  <!-- Panel Toggler Script -->
+  <script>
+    $(document).ready(function(){
+      $(".lnk-toggler").on('click', function(e){
+        e.preventDefault();
+        var target = $(this).data("panel");
+        $(".authfy-panel").removeClass("active");
+        $(target).addClass("active");
+      });
+    });
+  </script>
+
+  <script type="module" src="firebase.js"></script>
+  <script type="module" src="auth.js"></script>
+</body>
+</html>
